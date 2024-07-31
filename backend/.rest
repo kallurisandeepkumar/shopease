@@ -1,0 +1,12 @@
+### Create Promo Code
+POST http://localhost:5000/api/promocodes
+Content-Type: application/json
+
+{
+  "code": "SUMMER222",
+  "type": "percentage",
+  "value": 10,
+  "expiryDate": "2024-08-31",
+  "usageLimit": 100,
+  "applicableProducts": ["electronics", "clothing"]
+}
