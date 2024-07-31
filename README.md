@@ -71,6 +71,9 @@ Shopease is a web application that provides an online shopping experience. This 
    ```
 
    The frontend server will start on `http://localhost:3000`.
+   then goto `http://localhost:3000/register`,
+   then it will redirect to login.
+   
 
 ## Running the Project
 
