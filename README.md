@@ -111,6 +111,114 @@ shopease/
     │   ├── index.js
     │   └── package.json
 ```
+## Key Features
+
+### Backend
+
+- **Authentication**: User registration and login via `auth.js` routes.
+- **Product Management**: Fetch and add products through `products.js` routes.
+- **Promo Codes**: Manage promo codes through `promocodes.js` routes.
+- **Referrals**: Create and redeem referrals via `referrals.js` routes.
+- **Shopping Cart**: Manage shopping cart via `carts.js` routes.
+
+### Frontend
+
+- **Routing**: Uses React Router to handle different pages.
+- **Components**: Organized into reusable components for functionalities like registration, login, product catalog, adding products, promo codes, and referrals.
+
+## Architecture Design
+
+
+![Architecture Diagram](assets/architecture-diagram.png)
+
+
+The architecture design includes the following components and data flow:
+
+1. **Client (Frontend)**: React components handle user interactions.
+2. **API (Backend)**: Routes and controllers manage the application logic.
+3. **Database (MongoDB)**: Schemas define the structure of stored data.
+
+### Diagram Description
+
+1. **Frontend**:
+   - **User** interacts with the React components.
+
+2. **Backend**:
+   - **API** receives the request and directs it to the appropriate route.
+   - **Route** applies the **Middleware** (if any) and calls the **Controller**.
+   - **Controller** performs the required operations using the **Model**.
+   - **Model** interacts with the **Database** to perform CRUD operations.
+   - **Controller** sends the response back through the **API** to the **Frontend**.
+
+### Controller Functions
+
+#### `authController.js`
+
+1. **register**: Registers a new user and returns a JWT token.
+2. **login**: Authenticates a user and returns a JWT token.
+
+#### `productController.js`
+
+1. **getProducts**: Fetches all products.
+2. **addProduct**: Adds a new product.
+
+#### `cartController.js`
+
+1. **addToCart**: Adds items to the cart or updates existing items.
+2. **getCart**: Retrieves the user's cart.
+
+#### `promoCodeController.js`
+
+1. **createPromoCode**: Creates a new promo code.
+2. **getPromoCodes**: Fetches all available promo codes.
+3. **applyPromoCode**: Applies a promo code to the user's cart.
+   - **Scenarios**:
+     - Validates if the promo code exists.
+     - Checks if the promo code is expired.
+     - Verifies if the promo code usage limit is reached.
+     - Ensures the user is allowed to use the promo code.
+     - Applies the discount to applicable products in the cart.
+     - Updates the cart total with the discounted price.
+     - Saves the updated cart and promo code usage details.
+
+#### `referralController.js`
+
+1. **createReferral**: Creates a new referral.
+2. **getReferralStatus**: Fetches the status of a specific referral.
+3. **redeemReferral**: Redeems a referral and generates a promo code for the referred user.
+
+
+## Assumptions Made:
+
+1. **User Authentication**:
+   - Assumed that user authentication is managed using JWT tokens stored in cookies.
+
+2. **Product Management**:
+   - Products can be created, viewed, updated, and deleted.
+
+3. **Promo Codes**:
+   - Promo codes can be created and applied to the cart.
+
+4. **Referrals**:
+   - Users can create referrals and redeem them.
+
+5. **Shopping Cart**:
+   - Users can add products to their cart and view the cart's contents.
+
+6. **Environment**:
+   - Assumed that the application runs in a local development environment with MongoDB as the database.
+
+7. **Security**:
+   - Basic security measures like input validation and JWT authentication are implemented.
+
+8. **Frontend Framework**:
+   - Assumed React is used for building the user interface.
+
+9. **Backend Framework**:
+   - Assumed Express.js is used for building the backend API.
+
+10. **Data Flow**:
+    - Assumed a synchronous flow where the frontend waits for the backend response to update the UI.
 
 ## Contributing
 
