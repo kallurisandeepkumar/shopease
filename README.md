@@ -93,6 +93,10 @@ Shopease is a web application that provides an online shopping experience. This 
    ```
    http://localhost:3000
    ```
+4. **navigate to register**
+    ```
+    http://localhost:3000/register
+    ```   
 
 ## Project Structure
 
