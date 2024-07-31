@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create an instance of axios
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: process.env.REACT_APP_API_UR,
   withCredentials: true, // Include cookies with each request
 });
 
