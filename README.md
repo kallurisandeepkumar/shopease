@@ -129,7 +129,7 @@ shopease/
 ## Architecture Design
 
 
-![Architecture Diagram](assets/architecture-diagram.png)
+![Architecture Diagram](architechture.png)
 
 
 The architecture design includes the following components and data flow:
@@ -168,6 +168,7 @@ The architecture design includes the following components and data flow:
 2. **getCart**: Retrieves the user's cart.
 
 #### `promoCodeController.js`
+![promoCodeScenario](promocodeScenario.png)
 
 1. **createPromoCode**: Creates a new promo code.
 2. **getPromoCodes**: Fetches all available promo codes.
